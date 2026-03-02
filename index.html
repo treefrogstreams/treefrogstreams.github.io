@@ -1,1 +1,50 @@
-<img src="baldie.png"></img>
+<head>
+
+  <style>
+img {
+  
+  max-width: 100%; /* Ensures the image doesn't exceed the width of its container */
+  height: auto;    /* Automatically adjusts the height to maintain the aspect ratio */
+  display: block;  /* Optional: Helps with layout issues and removes unwanted space below the image */
+}
+
+
+ .image-container img {
+    /* Position the image initially below the viewport using transform: translateY() */
+    transform: translateY(100vh); 
+    
+    /* Apply the animation properties */
+    animation-name: scroll-up-down;
+    animation-duration: 4s; /* Duration of one cycle (up and down) */
+    animation-timing-function: ease-in-out; /* Smooth start and end */
+    animation-iteration-count: infinite; /* Loop the animation continuously */
+    animation-direction: alternate; /* Play forwards, then backwards */
+    animation-fill-mode: forwards; /* Keep the final state after animation if not infinite */
+    
+    /* Ensure image positioning context if needed, though transform works well without position: relative here */
+    display: block; 
+    margin: 0 auto; /* Center the image horizontally */
+    width: 200px; /* Adjust size as needed */
+}
+
+@keyframes scroll-up-down {
+    0% {
+        /* Start position: 100vh moves the element its full height plus the viewport height down, effectively off-screen below */
+        transform: translateY(100vh); 
+    }
+    100% {
+        /* End position: moves the element to the desired "up" position */
+        /* For example, 0 or a negative percentage to bring it into view */
+        transform: translateY(0); 
+    }
+}
+   
+    
+  </style>
+</head>
+<body>
+  <div class="image-container">
+  <img src="baldie.png"></img>
+  </div>
+</body>
+
